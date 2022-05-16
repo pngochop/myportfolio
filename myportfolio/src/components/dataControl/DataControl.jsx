@@ -4,32 +4,34 @@ export default class DataControl extends React.PureComponent {
     constructor(props){
         super(props);
         this.state = {
-            data: null
+            member: null
         }       
     }
 
     componentDidMount() {
         // POST request using fetch with set headers
         const requestOptions = {
+            // mode: 'no-cors',
             method: 'POST',
             headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndpbmRvZmNoYXJpdGFibGVAZ21haWwuY29tIiwiaWF0IjoxNTcyMjAyODUyLCJleHAiOjE1NzIyODkyNTJ9.OIWsMnAcIotvJ3XJ3eFoFCet4Yu-JA5OwYBx2wMblvs'
-                
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({ memberid: 72 })
-        };
-        fetch('https://hopp-lab4-backend.herokuapp.com/contacts', requestOptions)
+        };//https://safe-forest-70294.herokuapp.com/https://hopp-lab4-backend.herokuapp.com/contacts?memberid=72
+        fetch('https://safe-forest-70294.herokuapp.com/https://hopp-lab4-backend.herokuapp.com/contacts?memberid=72', requestOptions)
             .then(response => response.json())
-            .then(data => this.setState({ postId: data }));
+            .then(dataRP => {
+                this.setState({ member: dataRP.data })
+                console.log(dataRP.data[0].memberid)
+            });
     }
 
     render(){
         return (<div>
-            {this.state.data === null ? 
-                <div>Loading</div>
+            {this.state.member === null ? 
+                <div>Loading ???</div>
             :
-                <div>{this.state.data}</div>
+                <div><ul>{this.state.member.map((d => <li key={d.memberid}>{d.memberid} - {d.firstname}</li>))}</ul></div>
             }
         </div>);
     }
