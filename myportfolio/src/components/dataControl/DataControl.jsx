@@ -1,4 +1,4 @@
-import React                from 'react';
+import React, {Component} from 'react';
 
 export default class DataControl extends React.PureComponent {
     constructor(props){
@@ -36,3 +36,45 @@ export default class DataControl extends React.PureComponent {
         </div>);
     }
 }
+
+  class FishInSea extends Component{
+       constructor(props){
+            super(props);
+            this.state = {
+                 fishInSea: 100
+            }
+       }
+       componentDidMount(){
+             this.setState({fishInSea: 100});
+       }
+       render(){
+           const { fishInSea } = this.state;
+                return(
+                   <div>Fish in the sea: 
+                         <FishInOcean fishInSea={fishInSea} />
+                   </div>
+            );
+        }
+   }
+
+
+
+    class FishInOcean extends Component{
+         constructor(props){
+             super(props);
+             this.state = {fishInOcean: 1000}
+         }
+         componentDidMount(){
+             this.setState({fishInOcean: 1000});
+          }
+        render(){
+           const { fishInOcean} = this.state;
+           const { fishInSea } = this.props;
+           return(
+               <div>Fish in the ocean: {fishInOcean}
+                    {fishInSea}
+               </div>
+           );
+       }
+   }
+

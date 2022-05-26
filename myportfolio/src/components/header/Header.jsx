@@ -8,7 +8,7 @@ import './header.css'
 export const Header = () => {
   return (
     <header> 
-      <div className="contianer header_container">
+      <div className="container header__container">
         <h5>Hello I'm</h5>
         <h1>Hop Pham</h1>
         <h5 className="text-light"> Fullstact Developer </h5>

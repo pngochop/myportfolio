@@ -6,6 +6,7 @@ import {Experience} from './components/experience/Experience'
 import {Contact} from './components/contact/Contact'
 import {Footer} from './components/footer/Footer'
 import DataControl from './components/dataControl/DataControl'
+import {Projects} from './components/projects/Projects'
 import './index.css'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
             <Nav />
             <About />
             <Experience />
+            <Projects />
             <Contact />
             <Footer />
             <DataControl />

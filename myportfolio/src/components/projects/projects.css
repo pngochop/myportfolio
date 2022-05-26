@@ -1,0 +1,41 @@
+.container .project__container {
+    width: 40%;
+}
+
+.project {
+    background: var(--color-bg-variant);
+    text-align: center;
+    padding: 2rem;
+    border-radius: 2rem;
+    user-select: none;
+}
+
+.project__detail {
+    color: var(--color-light);
+    font-weight: 300;
+    display: block;
+    width: 80%;
+    margin: 0.8rem auto 0;
+}
+
+.swiper-pagination-bullet {
+    background: var(--color-primary);
+}
+
+/*============================MEDIA QUERIES (MEDIUM DIVICES)=================*/
+@media screen and (max-width:1024px) {
+    .container .project__container {
+        width: 60%;
+    }
+
+}
+
+/*============================MEDIA QUERIES (SMALL DIVICES)=================*/
+@media screen and (max-width:600px) {
+    .container .project__container {
+        width: (--container-width-sm);
+    }
+    .project__detail {
+        width: var(--container-width-sm);
+    }
+}
